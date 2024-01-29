@@ -4,7 +4,7 @@ const mealDetails = document.querySelector("#mealDetails .row");
 
 // Navbar Content
 const barsIcon = $("#barsIcon i");
-const navbarWidth = $(".navbar-left-links").outerWidth();
+const navbarWidth = $(".navbar-left-links");
 const navbarLeft = $(".navbar-left");
 const navbarLeftLinks = $(".navbar-left-links");
 const navbarLinksList = $(".nav-links-list li");
@@ -63,7 +63,7 @@ function loadLayerBetweenLinks() {
 // // // Toggle Navbar
 function toggleNav() {
   barsIcon.on("click", function () {
-    navbarLeft.animate({ left: navbarWidth }, 500);
+    navbarLeft.animate({ left: navbarWidth.outerWidth() }, 500);
     navbarLeftLinks.animate({ left: 0 }, 500);
     navbarLinksList.show(500);
     barsIcon.removeClass("fa-bars");
@@ -76,7 +76,7 @@ toggleNav();
 // // Close Navbar
 function closeNav() {
   if (navbarLeftLinks.css("left") == "0px") {
-    navbarLeftLinks.animate({ left: -navbarWidth }, 500);
+    navbarLeftLinks.animate({ left: -navbarWidth.outerWidth() }, 500);
     navbarLeft.animate({ left: 0 }, 500);
     setTimeout(() => {
       navbarLinksList.hide(500);
